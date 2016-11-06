@@ -13,15 +13,15 @@ public class App
 {
     public static void main( String[] args )
     {
-    	FullyConnected network = new FullyConnected(2, 1, new int[] {10, 10, 10}, 0.001, FullyConnected.OuputType.LINEAR);
+    	FullyConnected network = new FullyConnected(2, 1, new int[] {20, 20, 20}, 0.0005, FullyConnected.OuputType.LINEAR);
     	
     	DataSet data = XOR.getDataSet();
     	
-    	network.train(data, 10000);
+    	network.train(data, 15000);
     	
-    	System.out.println("input: 0 0, output: "+network.predict(new double[] {0, 0})[0]);
-    	System.out.println("input: 1 0, output: "+network.predict(new double[] {1, 0})[0]);
-    	System.out.println("input: 0 1, output: "+network.predict(new double[] {0, 1})[0]);
-    	System.out.println("input: 1 1, output: "+network.predict(new double[] {1, 1})[0]);
+    	System.out.println("input: 0 0, output: "+Math.round(network.predict(new double[] {0, 0})[0]));
+    	System.out.println("input: 1 0, output: "+Math.round(network.predict(new double[] {1, 0})[0]));
+    	System.out.println("input: 0 1, output: "+Math.round(network.predict(new double[] {0, 1})[0]));
+    	System.out.println("input: 1 1, output: "+Math.round(network.predict(new double[] {1, 1})[0]));
     }
 }
